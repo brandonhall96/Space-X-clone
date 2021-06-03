@@ -78,9 +78,24 @@ const fetchAllRoadsters = async() => {
 fetchAllRoadsters();
 
 const updateRoadster = async(_id, name) => {
-    Roadster.findOneAndUpdate({_id}, {new: true}, (err, roadster) => {
+    Roadster.findOneAndUpdate({_id}, {name}, {new: true}, (err, roadster) => {
         console.log(roadster)
         //respponse with redirects
         // res.redirect(`/roadster/${_id}`)
     })
 }
+
+// updateRoadster('60b8efac44f80f591af97131', 'Vinnies Escalade');
+
+const deleteRoadster = async(_id) => {
+    Roadster.findByIdAndRemove({_id}, (err, removed) => {
+        if (err) console.log(err);
+        console.log(removed)
+        
+    });
+    console.log('Deleted!')
+    //response with a going back to /roadster
+    // res.redirect('/roadster');
+}
+
+// deleteRoadster('60b8eeb27a7673585fb822d1');
