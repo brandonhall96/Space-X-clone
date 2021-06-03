@@ -38,8 +38,8 @@ app.get('/', (req, res) => {
 app.get('/roadster', (req, res) => {
     const fetchAllRoadsters = async() => {
         const result = await Roadster.find();
-        console.log(result)
-        res.json(result)
+        console.log(result);
+        res.json(result);
     }
     
     fetchAllRoadsters();
@@ -49,14 +49,31 @@ app.get('/roadster/:id', (req, res) => {
     let _id = req.params.id;
     const fetchRoadster = (_id) => {
         Roadster.findOne({_id}, (err, roadster) => {
-            if (err) console.log(err)
-            console.log(roadster)
+            if (err) console.log(err);
+            console.log(roadster);
             //response with Json
-            res.json(roadster)
+            res.json(roadster);
         })
     }
     fetchRoadster(_id);
 })
+
+app.put('/roadster/:id/edit', (req, res) => {
+    let _id = req.params.id;
+    console.log(req.body);
+    let name = req.body.name;
+
+    const updateRoadster = async(_id, name) => {
+        Roadster.findOneAndUpdate({_id}, {name}, {new: true}, (err, roadster) => {
+            console.log(roadster)
+            //respponse with redirects
+            res.redirect(`/roadster/${_id}`)
+        })
+    }
+    updateRoadster(_id, name);
+})
+    
+
 
 //-----------Rocket---------------------------Rocket-------------------Rocket
 
@@ -80,9 +97,13 @@ app.get('/rocket/:id', (req, res) => {
         })
     }
     fetchRocket(_id)
+})
 
+app.put('/rocket/:id/edit', (req, res) => {
 
 })
+
+
     
     
     

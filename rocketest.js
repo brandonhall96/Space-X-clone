@@ -56,7 +56,7 @@ const updateRocket = async(_id, name) => {
     })
 }
 
-updateRocket('60b90198e3ab0d618776dde8', 'Thic Boi 3000');
+// updateRocket('60b90198e3ab0d618776dde8', 'Thic Boi 3000');
 
 const removeRocket = async(_id) => {
     Rocket.findByIdAndRemove({_id}, (err, removed) => {
