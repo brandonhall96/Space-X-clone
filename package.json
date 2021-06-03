@@ -1,0 +1,25 @@
+{
+  "name": "space-x-clone",
+  "version": "1.0.0",
+  "description": "Mongoose project with examples",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonhall96/Space-X-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonhall96/Space-X-clone/issues"
+  },
+  "homepage": "https://github.com/brandonhall96/Space-X-clone#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  }
+}
