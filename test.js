@@ -10,6 +10,8 @@ const Roadster = require('./models/roadster');
 const createRoadster = async (obj) => {
     Roadster.create(obj, (err, roadster) => {
         console.log(roadster)
+        //response with json object
+        //res.json(roadster)
     })
 
 // const newRoadster = await Roadster.create(obj)
@@ -50,4 +52,35 @@ const roadsterOne = `{
 //switch from json to js
 let obj = JSON.parse(roadsterOne)
 
-createRoadster(obj);
+// createRoadster(obj);
+
+
+// mfunction will be good for /roadster/:id
+const fetchRoadster = (_id) => {
+    Roadster.findOne({_id}, (err, roadster) => {
+        if (err) console.log(err)
+        console.log(roadster)
+        //response with Json
+        //res.json(roadster)
+
+    })
+
+
+}
+
+// fetchRoadster(`60b8efac44f80f591af97131`);
+
+const fetchAllRoadsters = async() => {
+    const result = await Roadster.find();
+    console.log(result)
+}
+
+fetchAllRoadsters();
+
+const updateRoadster = async(_id, name) => {
+    Roadster.findOneAndUpdate({_id}, {new: true}, (err, roadster) => {
+        console.log(roadster)
+        //respponse with redirects
+        // res.redirect(`/roadster/${_id}`)
+    })
+}
