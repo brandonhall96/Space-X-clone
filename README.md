@@ -91,3 +91,9 @@ Mongoose project with examples
     "type": "String"
   }
 }
+
+exercise:
+1. create a model
+2. add Schema
+3. access the spacex endpoint to get data back 
+4. test models inside of test
